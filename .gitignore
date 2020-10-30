@@ -3,8 +3,8 @@
 
 
 #dont show previous model
-./halde
-model.pyh
+halde/
+model.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
