@@ -1,7 +1,9 @@
 #dont show gitignore
 .gitignore
 
+
 #dont show previous model
+./halde
 model.pyh
 
 # Byte-compiled / optimized / DLL files
