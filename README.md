@@ -8,7 +8,8 @@ For installation see: [huggingface](https://huggingface.co/transformers/installa
 Transformers can either be based on  Tensorflow, Pytorch or both. 
 The present model is based on Tensorflow.
 
-Model pre-trained on German text and fine-tuned on novel "Spieltrieb" by Juli Zeh. Data contains only parts of the novel with randomized chapters to prevent copyright violations.  
+Model pre-trained on German text and fine-tuned on novel "Spieltrieb" by Juli Zeh. Data contains only parts of the novel with randomized chapters to prevent copyright violations. 
+Data consists of 79886 words.  
 
 ## Content: 
 
