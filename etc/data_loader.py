@@ -10,10 +10,9 @@ def load_data():
     print("data type is:", type(h_data))
     data = str(h_data)
     print("data type changed to:", type(data))
-    clean_data = data.replace("\n", " ")
-    clean_data.load()
+    clean_data: str = data.replace("\n", " ")
     print("data stripped from newlines")
-        return print("data loaded, named 'clean_data' ")
+    print("data loaded, named 'clean_data' ")
 
 load_data()
 clean_data
