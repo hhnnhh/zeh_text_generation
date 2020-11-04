@@ -3,15 +3,12 @@
 ### pretrained GPT-2 for text generation in German
 ------------
 
-*Warning*: We use a GPT-2 pretrained on an unknown German corpus. Therefore, we cannot rule out embedding biases and enabling unintended negative uses. In addition, the book used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining or fine-tuning will affect the generated text.
+*Warning*: We use a GPT-2 pretrained on an unknown German corpus by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2). Therefore, we cannot rule out embedding biases and enabling unintended negative uses induced by the corpus. In addition, the German novel used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining and fine-tuning will affect the generated text.
 
 ## Installation:
 For installation see: [huggingface](https://huggingface.co/transformers/installation.html)
 Transformers can either be based on  Tensorflow, Pytorch or both. 
 The present model is based on Tensorflow.
-
-Model pre-trained on German text and fine-tuned on novel "Spieltrieb" by Juli Zeh. Data contains only parts of the novel with randomized chapters to prevent copyright violations. 
-Data consists of 79886 words.  
 
 ## Content: 
 
@@ -27,7 +24,9 @@ Data consists of 79886 words.
 ## Dependencies
 
 ## Data 
-txt file can be found in 'data' folder
+Model pre-trained on German text and fine-tuned on novel "Spieltrieb" by Juli Zeh.  Data contains only parts of the novel with randomized chapters to prevent copyright violations. 
+
+Txt-file consists of 79886 words. Txt file can be found in 'data' folder.
 
 ## Preprocessing
 For text preprocessing it is important to use the same tokenizer as was used for pretraining the model. In this case we use the "german-gpt2" tokenizer as provided by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2).
