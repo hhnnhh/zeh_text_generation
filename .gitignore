@@ -5,6 +5,9 @@
 #dont show previous model
 halde/
 model.py
+runs/
+app.py
+model/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

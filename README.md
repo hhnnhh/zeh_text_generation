@@ -3,7 +3,9 @@
 ### pretrained GPT-2 for text generation in German
 ------------
 
-*Warning*: We use a GPT-2 pretrained on an unknown German corpus by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2). Therefore, we cannot rule out embedding biases and enabling unintended negative uses induced by the corpus. In addition, the German novel used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining and fine-tuning will affect the generated text.
+*Warning*: The following GPT-2 model was pretrained on an unknown German corpus by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2). Therefore, we cannot rule out embedding biases and enabling unintended negative uses induced by the corpus. In addition, the German novel used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining and fine-tuning will affect the generated text.
+
+For an example for biased text generation see [here](https://huggingface.co/gpt2#limitations-and-bias).
 
 ## Installation:
 For installation see: [huggingface](https://huggingface.co/transformers/installation.html)
