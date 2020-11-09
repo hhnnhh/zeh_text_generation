@@ -1,7 +1,7 @@
 # Information: https://huggingface.co/transformers/training.html
 
-import tensorflow as tf
-import transformers
+# import tensorflow as tf
+# import transformers
 from transformers import LineByLineTextDataset
 
 # import tokenizer and model
@@ -44,7 +44,7 @@ from transformers import Trainer, TrainingArguments
 training_args = TrainingArguments(
     output_dir="./model/args",
     overwrite_output_dir=True,
-    num_train_epochs=200,
+    num_train_epochs=1,
     per_device_train_batch_size=64,
     save_steps=10_000,
     save_total_limit=2,
@@ -64,8 +64,21 @@ trainer.train()
 trainer.save_model("./model/trained_model")
 tokenizer.save_pretrained("./model/toke")
 
-model = AutoModelWithLMHead.from_pretrained("./model/trained_model")
+# remodeling the model and saving the model as tensorflow (tf_model.h5)
+# from transformers import TFAutoModelWithLMHead
+#
+# tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_pt=True)
+# tf_model.save_pretrained("./model/tf_model/")
+# tf_model.save("./model/pb_model/")
+# model = TFAutoModelWithLMHead.from_pretrained("./model/tf_model")
 
+#try converting to TFLite -
+# import tensorflow as tf
+# converter = tf.lite.TFLiteConverter.from_saved_model("./model/pb_model/")
+# model_no_quant_tflite = converter.convert()
+# open("./model/tflite", "wb").write(model_no_quant_tflite) # access denied
+# model_no_quant_tflite.save_pretrained("./model/tflite/")
+# model_no_quant_tflite.save("./model/tflite2/")
 
 prompt = "Ada liebte ihre Katze"
 inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
@@ -74,4 +87,3 @@ prompt_length = len(tokenizer.decode(inputs[0], skip_special_tokens=True, clean_
 outputs = model.generate(inputs, max_length = max_length, do_sample=True, top_p=0.95, top_k=60)
 generated = prompt + tokenizer.decode(outputs[0])[prompt_length:]
 generated
-s

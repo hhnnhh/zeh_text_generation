@@ -8,6 +8,7 @@
 
 import urllib
 import streamlit as st
+from transformers import AutoModelWithLMHead, AutoTokenizer
 import torch
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)

@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "./model/trained_model",
+  "_name_or_path": "anonymous-german-nlp/german-gpt2",
   "activation_function": "gelu_new",
   "architectures": [
     "GPT2LMHeadModel"
