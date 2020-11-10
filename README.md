@@ -1,7 +1,10 @@
+![GPT-2 generated lyric pic](pic/lyric.png)
+
 # Juli Zeh Lyrics Generator
 ## Natural Language Generation Neural Net
 ### pretrained GPT-2 for text generation in German
 ------------
+
 
 *Warning*: The following GPT-2 model was pretrained on an unknown German corpus by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2). Therefore, we cannot rule out embedding biases and enabling unintended negative uses induced by the corpus. In addition, the German novel used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining and fine-tuning will affect the generated text.
 
@@ -46,9 +49,32 @@ model = AutoModelWithLMHead.from_pretrained("anonymous-german-nlp/german-gpt2")
 ```
 
 ## Result
+Model is trained and saved and able to generate lyrics. 
+Unfortunately the pretrained model cannot be saved in github because of its size (~500MB).
+
+Neural nets calculate probabilities. In its basic version - greedy search - the neural net simply selects the word with the highest probability as its next word. As a result, AI-generated texts often suffer from repetitions.
+
+There are different possibilities to add some randomness to text generation, such as using temperature or penalizing n-gram repetitions (for different temperature options, see also my LSTM RNN). 
+
+In GPT-2 top-k sampling was introduced. 
+
+```python
+outputs = german_model.generate(inputs, max_length = max_length, do_sample=True, top_p=0.95, top_k=50,num_return_sequences=3)
+
+```
+
+
+
+top_k => In Top-K sampling, the K most likely next words are filtered and the probability mass is redistributed among only those K next words.
+
+top_p => Having set p=0.95, Top-p sampling picks the minimum number of words to exceed together p=.95% of the probability mass
+
 
 
 
 ## Outlook 
 According to [huggingface](https://huggingface.co/transformers/v3.3.1/task_summary.html), "Text generation is currently possible with GPT-2, OpenAi-GPT, CTRL, XLNet, Transfo-XL and Reformer in PyTorch and for most models in Tensorflow as well. [...] GPT-2 is usually a good choice for open-ended text generation because it was trained on millions of webpages with a causal language modeling objective." 
 It would be really interesting to compare the quality of generated text by German pretrained text generation models. 
+
+## Resources
+# for text generation sampling see https://huggingface.co/blog/how-to-generate

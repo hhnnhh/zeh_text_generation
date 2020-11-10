@@ -18,7 +18,7 @@ model = AutoModelWithLMHead.from_pretrained("anonymous-german-nlp/german-gpt2")
 train_data = LineByLineTextDataset(
     tokenizer=tokenizer,
     file_path="./data/zeh.txt",
-    block_size=128,
+    block_size=128
 )
 
 """
@@ -60,7 +60,6 @@ trainer = Trainer(
 
 # now TRAIN!
 trainer.train()
-
 trainer.save_model("./model/trained_model")
 tokenizer.save_pretrained("./model/toke")
 
@@ -70,7 +69,9 @@ tokenizer.save_pretrained("./model/toke")
 # tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_pt=True)
 # tf_model.save_pretrained("./model/tf_model/")
 # tf_model.save("./model/pb_model/")
-# model = TFAutoModelWithLMHead.from_pretrained("./model/tf_model")
+
+german_model = AutoModelWithLMHead.from_pretrained("./model/trained_model")
+#german_tokenizer = AutoTokenizer.from_pretrained("./model/toke")
 
 #try converting to TFLite -
 # import tensorflow as tf
@@ -84,6 +85,15 @@ prompt = "Ada liebte ihre Katze"
 inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
 max_length = 150
 prompt_length = len(tokenizer.decode(inputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True))
-outputs = model.generate(inputs, max_length = max_length, do_sample=True, top_p=0.95, top_k=60)
+# for provided options see huggingface blog https://huggingface.co/blog/how-to-generate
+# top_k => In Top-K sampling, the K most likely next words are filtered and the probability mass is redistributed among only those K next words.
+# top_p => Having set p=0.95, Top-p sampling picks the minimum number of words to exceed together p=.95% of the probability mass
+outputs = german_model.generate(inputs, max_length = max_length, do_sample=True, top_p=0.95, top_k=50, num_return_sequences=2)
 generated = prompt + tokenizer.decode(outputs[0])[prompt_length:]
-generated
+lyric = generated.replace('\n', ' ')
+print(lyric)
+
+# from transformers import pipeline
+#
+# text_generator = pipeline("text-generation",model=german_model,tokenizer=tokenizer)
+# print(text_generator("Ada liebte ihre Katze und", max_length=50, do_sample=False))
