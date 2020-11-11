@@ -8,10 +8,9 @@ Fine-tuned and presented by Hannah Bohle, November 2020
 
 *Warning*: The following GPT-2 model was pretrained on an unknown German corpus by an [anonymous user at huggingface](https://huggingface.co/anonymous-german-nlp/german-gpt2). Therefore, we cannot rule out embedding biases and enabling unintended negative uses induced by the corpus. In addition, the German novel used for fine-tuning contains explicit language. When using the model, please be aware that all content used for pretraining and fine-tuning will affect the generated text.
 
-For an example for biased text generation see [here](https://huggingface.co/gpt2#limitations-and-bias).
-
 ## Installation:
 For installation see: [huggingface](https://huggingface.co/transformers/installation.html)
+
 Most models from transformers can either be based on  Tensorflow, Pytorch or both. The provided GPT-2 is (currently only) based on Pytorch (November 2020).
 
 ## Content: 
@@ -80,6 +79,7 @@ According to [huggingface](https://huggingface.co/transformers/v3.3.1/task_summa
 It would be really interesting to compare the quality of generated text by German pretrained text generation models. 
 
 ## Resources
-+ model provided by an [anonymous user](https://huggingface.co/anonymous-german-nlp/german-gpt2)
-+ for text generation sampling see the interesting [huggingface blog post by Patrick von Platen](https://huggingface.co/blog/how-to-generate)
-+ Interested in [more textgeneration models from huggingface?](https://huggingface.co/transformers/v3.3.1/task_summary.html)
++ [The pretrained model](https://huggingface.co/anonymous-german-nlp/german-gpt2) was provided by an anonymous user at huggingface
++ [Limitations and biases in text generation](https://huggingface.co/gpt2#limitations-and-bias) 
++ For text generation sampling techniques see the interesting [huggingface blog post by Patrick von Platen](https://huggingface.co/blog/how-to-generate)
++ There are [more textgeneration models from huggingface](https://huggingface.co/transformers/v3.3.1/task_summary.html), some of them pretrained on different european languages. (What's the name of the French version of the Bi-directional Encoders for Transformers (BERT)? CamemBERT!)

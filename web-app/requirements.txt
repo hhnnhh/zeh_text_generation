@@ -1,0 +1,19 @@
+certifi==2020.6.20
+click==7.1.2
+Flask==1.1.2
+gunicorn==20.0.4
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+numpy @ file:///C:/ci/numpy_and_numpy_base_1603466732592/work
+olefile==0.46
+Pillow @ file:///C:/ci/pillow_1603823068645/work
+six==1.15.0
+torch==1.7.0
+torchvision==0.8.1
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1598376058250/work
+Werkzeug==1.0.1
+wincertstore==0.2

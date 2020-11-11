@@ -42,7 +42,7 @@ data_collator = DataCollatorForLanguageModeling(
 from transformers import Trainer, TrainingArguments
 
 training_args = TrainingArguments(
-    output_dir="./model/args",
+    output_dir="halde/old_models/args",
     overwrite_output_dir=True,
     num_train_epochs=1,
     per_device_train_batch_size=64,
@@ -53,7 +53,7 @@ training_args = TrainingArguments(
 
 trainer = Trainer(
     model=model,
-    args=training_args,
+p    args=training_args,
     data_collator=data_collator,
     train_dataset=train_data,
 )
@@ -63,28 +63,17 @@ trainer.train()
 trainer.save_model("./model/trained_model")
 tokenizer.save_pretrained("./model/toke")
 
-# remodeling the model and saving the model as tensorflow (tf_model.h5)
-# from transformers import TFAutoModelWithLMHead
-#
-# tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_pt=True)
-# tf_model.save_pretrained("./model/tf_model/")
-# tf_model.save("./model/pb_model/")
 
 german_model = AutoModelWithLMHead.from_pretrained("./model/trained_model")
+#doesnt work and may not be need - didnt make changes to tokenizer anyways, using "tokenizer"
 #german_tokenizer = AutoTokenizer.from_pretrained("./model/toke")
 
-#try converting to TFLite -
-# import tensorflow as tf
-# converter = tf.lite.TFLiteConverter.from_saved_model("./model/pb_model/")
-# model_no_quant_tflite = converter.convert()
-# open("./model/tflite", "wb").write(model_no_quant_tflite) # access denied
-# model_no_quant_tflite.save_pretrained("./model/tflite/")
-# model_no_quant_tflite.save("./model/tflite2/")
 
 prompt = "Ada liebte ihre Katze"
 inputs = tokenizer.encode(prompt, add_special_tokens=False, return_tensors="pt")
 max_length = 150
 prompt_length = len(tokenizer.decode(inputs[0], skip_special_tokens=True, clean_up_tokenization_spaces=True))
+
 # for provided options see huggingface blog https://huggingface.co/blog/how-to-generate
 # top_k => In Top-K sampling, the K most likely next words are filtered and the probability mass is redistributed among only those K next words.
 # top_p => Having set p=0.95, Top-p sampling picks the minimum number of words to exceed together p=.95% of the probability mass

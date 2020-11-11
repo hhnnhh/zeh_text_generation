@@ -1,5 +1,238 @@
--f https://download.pytorch.org/whl/torch_stable.html
+absl-py @ file:///C:/ci/absl-py_1600290345082/work
+aiohttp @ file:///C:/ci/aiohttp_1602530358780/work
+alabaster==0.7.12
+altair==4.1.0
+appdirs==1.4.3
+astor==0.8.1
+astroid==2.3.3
+astropy==4.0.1.post1
+astunparse==1.6.3
+async-timeout==3.0.1
+atomicwrites==1.4.0
+attrs @ file:///tmp/build/80754af9/attrs_1600298409949/work
+Babel==2.8.0
+backcall==0.1.0
+base58==2.0.1
+bing-image-downloader==1.0.4
+bleach==3.1.5
+blinker==1.4
+boto3==1.16.8
+botocore==1.19.8
+brotlipy==0.7.0
+cachetools @ file:///tmp/build/80754af9/cachetools_1596822027882/work
+certifi==2020.6.20
+cffi @ file:///C:/ci/cffi_1600699250966/work
+chardet==3.0.4
+click==7.1.2
+colorama @ file:///tmp/build/80754af9/colorama_1603211150991/work
+conda==4.9.0
+conda-package-handling @ file:///C:/ci/conda-package-handling_1603018162806/work
+confuse==1.3.0
+conllu==4.2.1
+coverage==5.3
+cryptography @ file:///C:/ci/cryptography_1601046913206/work
+cycler==0.10.0
+Cython==0.29.15
+datasets==1.1.2
+decorator==4.4.2
+defusedxml==0.6.0
+dill==0.3.3
+distlib==0.3.0
+docopt==0.6.2
+docutils==0.16
+elasticsearch==7.9.1
+entrypoints==0.3
+enum-compat==0.0.3
+faiss-cpu==1.6.4
+filelock==3.0.12
+fire==0.3.1
+flake8==3.7.9
+Flask==1.1.2
+fsspec==0.8.4
+future==0.18.2
+fuzzywuzzy==0.18.0
+gast==0.3.3
+git-python==1.0.3
+gitdb==4.0.5
+GitPython==3.1.11
+google-auth @ file:///tmp/build/80754af9/google-auth_1601995530934/work
+google-auth-oauthlib==0.4.1
+google-pasta==0.2.0
+googleapis-common-protos==1.52.0
+grpcio @ file:///C:/ci/grpcio_1597406403308/work
+gunicorn==20.0.4
+h5py==2.10.0
+htmlmin==0.1.12
+idna @ file:///tmp/build/80754af9/idna_1593446292537/work
+ImageHash==4.1.0
+imageio==2.8.0
+imagesize==1.2.0
+importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1602276842396/work
+importlib-resources==3.3.0
+ipykernel==5.2.1
+ipython==7.14.0
+ipython-genutils==0.2.0
+ipywidgets==7.5.1
+isort==4.3.21
+itsdangerous==1.1.0
+jedi==0.17.0
+Jinja2==2.11.1
+jmespath==0.10.0
+joblib==0.15.1
+jsonschema==3.2.0
+jupyter==1.0.0
+jupyter-client==6.1.3
+jupyter-console==6.1.0
+jupyter-core==4.6.3
+jupyter-http-over-ws==0.0.8
+jupytext==1.6.0
+Keras==2.3.1
+Keras-Applications==1.0.8
+Keras-Preprocessing==1.1.2
+kiwisolver==1.2.0
+lazy-object-proxy==1.4.3
+llvmlite==0.33.0
+Markdown @ file:///C:/ci/markdown_1603216569530/work
+markdown-it-py==0.5.4
+MarkupSafe==1.1.1
+matplotlib==3.3.2
+mccabe==0.6.1
+menuinst==1.4.16
+missingno==0.4.2
+mistune==0.8.4
+mkl-fft==1.2.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+more-itertools @ file:///tmp/build/80754af9/more-itertools_1598884071673/work
+multidict @ file:///C:/ci/multidict_1600456486794/work
+multiprocess==0.70.11.1
+nbconvert==5.6.1
+nbformat==5.0.6
+networkx==2.4
+nltk==3.5
+notebook==6.0.3
+numba==0.50.1
+numpy==1.18.5
+numpydoc==0.9.2
+oauthlib==3.1.0
+opt-einsum==3.1.0
+packaging==20.4
+pandas==1.0.4
+pandas-profiling==2.8.0
+pandocfilters==1.4.2
+parso==0.7.0
+pathtools==0.1.2
+phik==0.10.0
+pickleshare==0.7.5
+pigar @ git+https://github.com/damnever/pigar.git@823a3c2478361d53dba408bea75e1766d253f3c0
+Pillow==7.0.0
+pipenv==2018.11.26
+pipreqs==0.4.10
+pluggy==0.13.1
+portalocker==2.0.0
+prometheus-client==0.7.1
+promise==2.3
+prompt-toolkit==3.0.5
+protobuf==3.13.0
+psutil==5.7.3
+py @ file:///tmp/build/80754af9/py_1593446248552/work
+pyarrow==2.0.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycodestyle==2.5.0
+pycosat==0.6.3
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pydeck==0.5.0
+pyflakes==2.1.1
+Pygments==2.5.2
+PyJWT==1.7.1
+pylint==2.4.4
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1594392929924/work
+pyparsing==2.4.7
+pyreadline==2.1
+pyrsistent==0.16.0
+PySocks @ file:///C:/ci/pysocks_1594394709107/work
+pytesseract==0.3.6
+pytest==5.4.1
+pytest-cov==2.8.1
+pytest-doctestplus==0.5.0
+python-dateutil==2.8.1
+pytorch-lightning==1.0.4
+pytz==2020.1
+PyWavelets==1.1.1
+pywin32==227
+pywinpty==0.5.7
+PyYAML==5.3
+pyzmq==19.0.1
+qtconsole==4.7.4
+QtPy==1.9.0
+regex==2020.10.23
+requests @ file:///tmp/build/80754af9/requests_1592841827918/work
+requests-oauthlib==1.3.0
+rouge-score==0.0.4
+rsa @ file:///tmp/build/80754af9/rsa_1596998415516/work
+ruamel-yaml==0.15.87
+s3transfer==0.3.3
+sacrebleu==1.4.14
+sacremoses==0.0.43
+scikit-image==0.16.2
+-e git+https://github.com/hhnnhh/zeh_nlg.git@4d33814ea73e7e551d974ddc9425229f45de0942#egg=scikit_learn
+scipy==1.4.1
+seaborn==0.10.1
+Send2Trash==1.5.0
+sentencepiece==0.1.91
+seqeval==1.2.2
+six==1.15.0
+sklearn==0.0
+smmap==3.0.4
+snowballstemmer==2.0.0
+Sphinx==2.4.3
+sphinx-gallery==0.5.0
+sphinxcontrib-applehelp==1.0.2
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==1.0.3
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.4
+streamlit==0.70.0
 streamlit-nightly==0.69.3.dev20201025
+tangled-up-in-unicode==0.0.6
+tensorboard==2.3.0
+tensorboard-plugin-wit==1.6.0
+tensorflow==2.3.1
+tensorflow-datasets==4.1.0
+tensorflow-estimator==2.3.0
+tensorflow-metadata==0.25.0
+termcolor==1.1.0
+terminado==0.8.3
+testpath==0.4.4
+threadpoolctl==2.1.0
+tokenizers==0.9.2
+toml==0.10.1
+toolz==0.11.1
 torch==1.6.0+cpu
-torchvision==0.7.0+cpu
-transformers @ git+git://github.com/huggingface/transformers@59b5953d89544a66d73
+torchvision==0.7.0
+tornado==6.0.4
+tqdm @ file:///tmp/build/80754af9/tqdm_1602185206534/work
+traitlets==4.3.3
+transformers==3.4.0
+typed-ast==1.4.1
+typing-extensions==3.7.4.3
+tzlocal==2.1
+urllib3 @ file:///tmp/build/80754af9/urllib3_1603305693037/work
+validators==0.18.1
+virtualenv==20.0.6
+virtualenv-clone==0.5.3
+visions==0.4.4
+watchdog==0.10.3
+wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
+webencodings==0.5.1
+Werkzeug==0.16.1
+widgetsnbextension==3.5.1
+win-inet-pton==1.1.0
+wincertstore==0.2
+wrapt==1.12.1
+xxhash==2.0.0
+yarg==0.1.9
+yarl @ file:///C:/ci/yarl_1602679793616/work
+zipp @ file:///tmp/build/80754af9/zipp_1603306325174/work
