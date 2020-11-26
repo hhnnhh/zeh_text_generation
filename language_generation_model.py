@@ -15,6 +15,7 @@ model = AutoModelWithLMHead.from_pretrained("anonymous-german-nlp/german-gpt2")
 # --> 125 million parameters!
 
 #load dataset in format that model can read
+#not defined as function because dependening on tokenizer and import transformers ..
 train_data = LineByLineTextDataset(
     tokenizer=tokenizer,
     file_path="./data/zeh.txt",
@@ -53,7 +54,7 @@ training_args = TrainingArguments(
 
 trainer = Trainer(
     model=model,
-p    args=training_args,
+    args=training_args,
     data_collator=data_collator,
     train_dataset=train_data,
 )
@@ -63,10 +64,48 @@ trainer.train()
 trainer.save_model("./model/trained_model")
 tokenizer.save_pretrained("./model/toke")
 
+tf_model = AutoModelWithLMHead.from_pretrained("./model/trained_model", from_tf=True)
+tf_model.save_pretrained("./model/trained_model")
 
 german_model = AutoModelWithLMHead.from_pretrained("./model/trained_model")
 #doesnt work and may not be need - didnt make changes to tokenizer anyways, using "tokenizer"
 #german_tokenizer = AutoTokenizer.from_pretrained("./model/toke")
+
+
+
+# remodeling the model and saving the model as tensorflow (tf_model.h5)
+# create folder to save converted models
+
+import os
+os.mkdir("./model/pb_model")
+os.mkdir("./model/tf_model")
+
+# loading hugging face converter as described here:
+# https://huggingface.co/transformers/model_sharing.html
+
+from transformers import TFAutoModelWithLMHead
+
+# load pytorch_model.bin and related model structures, convert to h5
+tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_pt=True)
+# and save converted tf_model.h5 in "tf_model"
+tf_model.save_pretrained("./model/tf_model/")
+# and save "saved_model.pb" in "pb_model"
+tf_model.save("./model/pb_model/")
+# loading the h5 model is not a problem with TFAutoModelWithLMHead
+# model = TFAutoModelWithLMHead.from_pretrained("./model/tf_model") # load h5
+
+# but our problem is that we need to make predictions from saved_model.pb ..
+# 1. load model - not working because load expects config.json
+model = TFAutoModelWithLMHead.from_pretrained("./model/pb_model") # load h5
+
+
+#try converting to TFLite -
+# import tensorflow as tf
+# converter = tf.lite.TFLiteConverter.from_saved_model("./model/pb_model/")
+# model_no_quant_tflite = converter.convert()
+# open("./model/tflite", "wb").write(model_no_quant_tflite) # access denied
+# model_no_quant_tflite.save_pretrained("./model/tflite/")
+# model_no_quant_tflite.save("./model/tflite2/")
 
 
 prompt = "Ada liebte ihre Katze"
