@@ -3,7 +3,6 @@
 # import tensorflow as tf
 # import transformers
 from transformers import LineByLineTextDataset
-
 # import tokenizer and model
 from transformers import AutoModelWithLMHead, AutoTokenizer
 
@@ -78,12 +77,13 @@ german_model = AutoModelWithLMHead.from_pretrained("./model/trained_model")
 
 import os
 os.mkdir("./model/pb_model")
-os.mkdir("./model/tf_model")
+os.mkdir("./model/tf_model/keras")
 
 # loading hugging face converter as described here:
 # https://huggingface.co/transformers/model_sharing.html
 
 from transformers import TFAutoModelWithLMHead
+import tensorflow as tf
 
 # load pytorch_model.bin and related model structures, convert to h5
 tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_pt=True)
@@ -91,21 +91,18 @@ tf_model = TFAutoModelWithLMHead.from_pretrained("./model/trained_model/", from_
 tf_model.save_pretrained("./model/tf_model/")
 # and save "saved_model.pb" in "pb_model"
 tf_model.save("./model/pb_model/")
+
+tf.saved_model.save(german_model, "./model/tf_model/keras")
+
+
 # loading the h5 model is not a problem with TFAutoModelWithLMHead
-# model = TFAutoModelWithLMHead.from_pretrained("./model/tf_model") # load h5
-
-# but our problem is that we need to make predictions from saved_model.pb ..
-# 1. load model - not working because load expects config.json
-model = TFAutoModelWithLMHead.from_pretrained("./model/pb_model") # load h5
+loaded = tf.saved_model.load("./model/tf_model/keras")
 
 
-#try converting to TFLite -
-# import tensorflow as tf
-# converter = tf.lite.TFLiteConverter.from_saved_model("./model/pb_model/")
-# model_no_quant_tflite = converter.convert()
-# open("./model/tflite", "wb").write(model_no_quant_tflite) # access denied
-# model_no_quant_tflite.save_pretrained("./model/tflite/")
-# model_no_quant_tflite.save("./model/tflite2/")
+
+#tokenizer = AutoTokenizer.from_pretrained("anonymous-german-nlp/german-gpt2")
+
+
 
 
 prompt = "Ada liebte ihre Katze"
@@ -120,6 +117,8 @@ outputs = german_model.generate(inputs, max_length = max_length, do_sample=True,
 generated = prompt + tokenizer.decode(outputs[0])[prompt_length:]
 lyric = generated.replace('\n', ' ')
 print(lyric)
+
+
 
 # from transformers import pipeline
 #

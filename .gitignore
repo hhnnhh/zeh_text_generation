@@ -2,11 +2,16 @@
 .gitignore
 
 
+
 #dont show previous model
+#DO _NOT_ UPLOAD MODELS, THEY ARE TOO BIG FOR GITHUB (100 MB MAX!)
 halde/
 model.py
 runs/
 model/
+
+#
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

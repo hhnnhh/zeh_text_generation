@@ -3,6 +3,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/halde" />
+      <excludeFolder url="file://$MODULE_DIR$/model/pb_model" />
+      <excludeFolder url="file://$MODULE_DIR$/model/tf_model" />
+      <excludeFolder url="file://$MODULE_DIR$/model/toke" />
       <excludeFolder url="file://$MODULE_DIR$/runs" />
     </content>
     <orderEntry type="inheritedJdk" />
